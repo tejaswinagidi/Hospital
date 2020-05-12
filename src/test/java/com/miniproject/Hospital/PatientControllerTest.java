@@ -70,7 +70,7 @@ public class PatientControllerTest extends AbstractTest {
    @Test
    public void deleteByPatientIdTest() throws Exception {
 	      String uri = "/deleteByPatientId/3";
-          mvc.perform(MockMvcRequestBuilders.delete(uri)).andExpect(status().isOk()).andReturn();
+          mvc.perform(MockMvcRequestBuilders.delete(uri)).andExpect(status().isNoContent()).andReturn();
 	      Mockito.verify(patientService, Mockito.times(1)).deleteByPatientId(anyInt());
 
 	   }

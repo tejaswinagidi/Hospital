@@ -41,7 +41,7 @@ public class PatientController {
 	 @RequestMapping(path="/deleteByPatientId/{id}")
 	 public ResponseEntity<String> deleteByPatientId(@PathVariable(value="id") int id) {
 		 service.deleteByPatientId(id);
-		 return new ResponseEntity<>(HttpStatus.OK);
+		 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	 }
 	 
 	 //add a new patient into database
