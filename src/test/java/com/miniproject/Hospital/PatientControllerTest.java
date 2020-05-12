@@ -68,13 +68,38 @@ public class PatientControllerTest extends AbstractTest {
       Mockito.verify(patientService, Mockito.times(1)).addNewPatients(any());
    } 
    @Test
-   public void deleteByPatientIdTest() throws Exception {
+   public void deleteByPatientIdTestExisting() throws Exception {
+	      Patient patient=(patientObject(3,"teja","yoshi",19,"f","tejaswi.mail.com",782908772,"nnone"));
+	      Mockito.when(patientService.findByPatientId(3)).thenReturn(patient);
 	      String uri = "/deleteByPatientId/3";
           mvc.perform(MockMvcRequestBuilders.delete(uri)).andExpect(status().isNoContent()).andReturn();
 	      Mockito.verify(patientService, Mockito.times(1)).deleteByPatientId(anyInt());
 
 	   }
-  
+   @Test
+   public void deleteByPatientIdTest() throws Exception {
+	      Mockito.when(patientService.findByPatientId(3)).thenReturn(null);
+	      String uri = "/deleteByPatientId/3";
+          mvc.perform(MockMvcRequestBuilders.delete(uri)).andExpect(status().isNotFound()).andReturn();
+	      Mockito.verify(patientService, Mockito.times(1)).deleteByPatientId(anyInt());
+	   }
+   @Test
+   public void findByPatientIdTestExisting() throws Exception {
+	      Patient patient=(patientObject(3,"teja","yoshi",19,"f","tejaswi.mail.com",782908772,"nnone"));
+	      Mockito.when(patientService.findByPatientId(3)).thenReturn(patient);
+	      String uri = "/findByPatientId/3";
+          mvc.perform(MockMvcRequestBuilders.get(uri)).andExpect(status().isOk()).andReturn();
+	      Mockito.verify(patientService, Mockito.times(1)).findByPatientId(anyInt());
+
+	   }
+   @Test
+   public void findByPatientIdTest() throws Exception {
+	      Mockito.when(patientService.findByPatientId(3)).thenReturn(null);
+	      String uri = "/findByPatientId/3";
+       mvc.perform(MockMvcRequestBuilders.get(uri)).andExpect(status().isOk()).andReturn();
+	      Mockito.verify(patientService, Mockito.times(1)).findByPatientId(anyInt());
+
+	   }
    
    
 }

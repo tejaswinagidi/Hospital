@@ -21,8 +21,12 @@ public class PatientService {
 
          //return particular patient with given patientId
 	 public Patient findByPatientId(int id) {
+		 if((repository.findById(id).isPresent())){
 	        return repository.findById(id).get();
 	    }
+		 else
+			 return null;
+	 }
 
          //delete particular patient with given patientId from list
 	 public void deleteByPatientId(int id) {

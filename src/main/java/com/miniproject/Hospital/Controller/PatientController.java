@@ -40,10 +40,17 @@ public class PatientController {
 	 //delete the particular patient with given patientId
 	 @RequestMapping(path="/deleteByPatientId/{id}")
 	 public ResponseEntity<String> deleteByPatientId(@PathVariable(value="id") int id) {
+		 Patient patient=service.findByPatientId(id);
+	//	 System.out.println(patient);
+		 if(null!=patient) {
 		 service.deleteByPatientId(id);
 		 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	     }
+		 else {
+				Gson gson = new Gson();
+				return new ResponseEntity<>(gson.toJson("Patient not found"), HttpStatus.NOT_FOUND);
+	     }
 	 }
-	 
 	 //add a new patient into database
 	 @PostMapping(path="/addNewPatients") 
 	 public ResponseEntity<String> addNewPatient(@RequestBody Patient patient){
