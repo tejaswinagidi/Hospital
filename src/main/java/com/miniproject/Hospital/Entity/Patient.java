@@ -1,5 +1,7 @@
 package com.miniproject.Hospital.Entity;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
