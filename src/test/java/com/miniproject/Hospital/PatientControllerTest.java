@@ -59,15 +59,7 @@ public class PatientControllerTest extends AbstractTest {
    @Test
    public void addNewPatientTest() throws Exception {
       String uri = "/addNewPatients";
-      Patient patient = new Patient();
-      patient.setPatientId(3);
-      patient.setFirstName("teja");
-      patient.setLastName("ramani");
-      patient.setAge(22);
-      patient.setGender("f");
-      patient.setEmailid("teja.nagidi.hcl.com");
-      patient.setMobileNumber(836278910);
-      patient.setSymptoms("none");
+      Patient patient =(patientObject(3,"teja","yoshi",19,"f","tejaswi.mail.com",782908772,"nnone"));;
       String inputJson = super.mapToJson(patient);
       mvc.perform(MockMvcRequestBuilders.post(uri)
          .contentType(MediaType.APPLICATION_JSON_VALUE)
