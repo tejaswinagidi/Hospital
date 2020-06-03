@@ -1,0 +1,15 @@
+table, th, td {
+    border: 1px solid black;
+
+  }
+  th{
+      color:black;
+      font-size: large;
+      font-style: bold,italic;
+      text-align: center;
+  }
+   td {
+    color:darkblue;
+    font-style: italic;
+    text-align: center;
+  }
