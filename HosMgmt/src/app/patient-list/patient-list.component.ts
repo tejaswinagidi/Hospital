@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetPatientListService } from '../get-patient-list.service';
 
 @Component({
   selector: 'app-patient-list',
@@ -6,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-list.component.css']
 })
 export class PatientListComponent implements OnInit {
-
-  constructor() { }
+  public patients=[]
+  constructor( patientList : GetPatientListService) {
+   }
 
   ngOnInit(): void {
-  
+   
   }
   patientId:number;
   firstName:String;
