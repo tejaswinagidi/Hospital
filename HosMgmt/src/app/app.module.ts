@@ -4,6 +4,9 @@ import {RouterModule, Routes} from '@angular/router'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
+import { GetPatientListService } from './get-patient-list.service';
+import { HttpClientModule } from '@angular/common/Http';
+
 const appRoutes: Routes=[
   {path: 'patient-list', component: PatientListComponent},
   {path: '', redirectTo:'/patient-list',pathMatch:'full'}
@@ -12,14 +15,16 @@ const appRoutes: Routes=[
 @NgModule({
   declarations: [
     AppComponent,
-    PatientListComponent
+    PatientListComponent,
+ 
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ GetPatientListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
