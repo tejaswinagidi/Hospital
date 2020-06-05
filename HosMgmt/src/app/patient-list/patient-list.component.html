@@ -1,32 +1,5 @@
 <p>patient-list works!</p>
 <p>List of Patients.</p>
-
-<table style="width:100%">
-  <tr>
-    <th>FirstName</th>
-    <th>LastName</th>
-    <th>Age</th>
-    <th>Gender</th>
-    <th>MobileNumber</th>
-    <th>EmailId</th>
-    <th>Sympthoms</th>
-  </tr>
-  <tr>
-    <td>Tejaswi</td>
-    <td>Nagidi</td>
-    <td>22</td>
-    <td>Female</td>
-    <td>9553776226</td>
-    <td>tejaswi.nagidi@gmail.com</td>
-    <td>none</td>
-  </tr>
-  <tr>
-    <td>Niharika</td>
-    <td>cherukuri</td>
-    <td>22</td>
-    <td>Female</td>
-    <td>9547892226</td>
-    <td>niharika.cherukuri@gmail.com</td>
-    <td>none</td>
-  </tr>
-</table>
+<ul *ngFor = "let patient of patients">
+  <li>{{patients.firstName}} </li>
+</ul>
