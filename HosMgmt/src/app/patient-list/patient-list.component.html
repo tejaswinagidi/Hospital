@@ -1,5 +1,17 @@
-<p>patient-list works!</p>
 <p>List of Patients.</p>
-<ul *ngFor = "let patient of patients">
-  <li>{{patient.firstName}} </li>
-</ul>
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+  <ul *ngFor = "let patient of patients">
+      <li>
+        <td>{{patient.firstName}} </td>
+        <td>{{patient.lastName}}</td>
+        <td>{{patient.age}}</td>
+      </li>
+  </ul>
+  </tr>
+</table>

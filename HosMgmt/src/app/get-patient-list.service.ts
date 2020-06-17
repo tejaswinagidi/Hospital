@@ -10,7 +10,7 @@ export class GetPatientListService {
   constructor(private http:HttpClient ) { }
 
   getAllPatients(): Observable<patient[]>{
-      return this.http.get<patient[]>("http://localhost:8080/findAllPatients");
+      return this.http.get<patient[]>("//localhost:8080/findAllPatients");
       
   }
 }
